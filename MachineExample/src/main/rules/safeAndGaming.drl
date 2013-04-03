@@ -1,0 +1,11 @@
+//created on: Mar 30, 2013
+package safeAndGaming
+
+import cjsmit12.Machine;
+
+rule "safe and gaming machine options"
+	when
+		m : Machine((m.isRisky() == false) || (m.canGame() == false))
+	then
+		throw new java.lang.Exception("Machine is either Risky or cannot Game");
+end

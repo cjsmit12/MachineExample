@@ -1,0 +1,14 @@
+//created on: Apr 2, 2013
+//By Charles Smith
+//cjsmit12@ncsu.edu
+package hotGaming
+
+//imports object cjsmit12.Machine
+import cjsmit12.Machine
+
+rule "Exclude machines that are not hot and can't game"
+	when
+		m : Machine((m.isHot() == false) || (m.canGame() == false))
+	then
+		throw new java.lang.Exception("Machine is hot and/or can not game");
+end
